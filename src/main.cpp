@@ -1,6 +1,5 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
-#include <GL/GL.h>
 #include "Math/matrix.h"
 #include "Math/vec.h"
 
