@@ -1,0 +1,8 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(505,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  main.cpp
+C:\Users\rupes\source\repos\bifurcation\src\main.cpp(53,100): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\rupes\source\repos\bifurcation\src\main.cpp(53,92): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\rupes\source\repos\bifurcation\src\main.cpp(56,101): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\rupes\source\repos\bifurcation\src\main.cpp(56,93): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\rupes\source\repos\bifurcation\src\main.cpp(154,31): warning C4305: 'argument': truncation from 'double' to 'float'
+  bifurcation.vcxproj -> C:\Users\rupes\source\repos\bifurcation\build\bifurcation.exe
