@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 
 
-# set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Release)
 # set(CMAKE_CXX_FLAGS_DEBUG_INIT -Wall)
 
 project(Bifurcation VERSION 1.1 LANGUAGES C CXX)
@@ -38,6 +38,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+	add_compile_options(-Wall -pg)
 	add_executable(Bifurcation src/main.cpp ${SRC} ${INCLUDES})
-	target_link_libraries(Bifurcation glfw GL dl)
+	target_link_libraries(Bifurcation glfw GL dl pthread)
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
