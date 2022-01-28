@@ -9,7 +9,7 @@ Rendering of a Newton Fractal using OpenGL
 
 ### Build Process(Windows)
 #### Visual Studio
-- Build using visual studio in **Release** mode and run the exe in ```build``` directory
+- Build using visual studio in **Release** mode and run the exe in ```bin``` directory
 
 #### Command Line(Windows)
 You either need to use ```x64 Command prompt for VS``` or need to install ```clang``` to build the project using command line.
