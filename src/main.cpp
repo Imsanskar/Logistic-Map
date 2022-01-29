@@ -31,7 +31,7 @@ __m256 bifurcation_value_simd(__m256 r, __m256 xn){
 	__m256 sub_term = _mm256_sub_ps(_mm256_set1_ps(1.0f), xn);
 	__m256 xnext = _mm256_mul_ps(r, _mm256_mul_ps(xn, sub_term));
 	xn = xnext;
-	for (int i = 0; i < 200; i++) {
+	for (int i = 0; i < 1000; i++) {
 		sub_term = _mm256_sub_ps(_mm256_set1_ps(1.0f), xn);
 		xnext = _mm256_mul_ps(r, _mm256_mul_ps(xn, sub_term));
 		xn = xnext;
@@ -173,14 +173,14 @@ void* bifurcate_multithreading(void* param){
 
 void bifurcation(__m256 *y_value, int width, int height) {
 #ifdef MULTI_THREAD
-	pthread_t threads[THREAD_NO];
-	BifurcateData data[THREAD_NO];
+	pthread_t threads[THREAD_NO_BIFURC_CALC];
+	BifurcateData data[THREAD_NO_BIFURC_CALC];
 
 
 	int start_index = 0;
-	const uint partition_size = no_values / THREAD_NO;
+	const uint partition_size = no_values / THREAD_NO_BIFURC_CALC;
 	int end_index = start_index + partition_size;
-	for(int i = 0; i < THREAD_NO && start_index < no_values && end_index <= no_values; i++){
+	for(int i = 0; i < THREAD_NO_BIFURC_CALC && start_index < no_values && end_index <= no_values; i++){
 		data[i] = BifurcateData{
 			y_value,
 			start_index,
@@ -192,7 +192,7 @@ void bifurcation(__m256 *y_value, int width, int height) {
 		pthread_create(&threads[i], NULL, bifurcate_multithreading, &data[i]);
 	}
 
-	for(int i = 0; i < THREAD_NO; i++){
+	for(int i = 0; i < THREAD_NO_BIFURC_CALC; i++){
 		pthread_join(threads[i], 0);
 	}
 
