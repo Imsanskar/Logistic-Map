@@ -335,8 +335,8 @@ void processKeyboardInput(GLFWwindow* window) {
 }
 
 
-__m256 *Align(__m256 *location, size_t alignment) {
-    return reinterpret_cast<__m256 *>(reinterpret_cast<size_t>(location + (alignment - 1)) & ~(alignment - 1));
+uint8_t *Align(uint8_t *location, size_t alignment) {
+    return reinterpret_cast<uint8_t *>(reinterpret_cast<size_t>(location + (alignment - 1)) & ~(alignment - 1));
 }
 
 int main() {
@@ -360,7 +360,7 @@ int main() {
 	// glViewport(0, 0, width, height);
 
 	__m256* y_values = (__m256 *)malloc(sizeof(__m256) * no_values / 8);
-	//y_values = Align(y_values, 32);
+	y_values = (__m256 *)Align((uint8_t *)y_values, 32);
 	screen.y_value = y_values;
 	bifurcation(y_values, width, height);
 	glfwSetWindowUserPointer(window, &screen);
