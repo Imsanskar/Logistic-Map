@@ -1,5 +1,5 @@
 # Logistic Map
-Rendering of a Newton Fractal using OpenGL
+Rendering of a Logistic Map using OpenGL
 ### System Requirements
 -  Operating System : Linux/ Windows
 -  Programming Language : C/C++
